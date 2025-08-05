@@ -1,0 +1,26 @@
+.header-container {
+  display: flex;
+  background-color: #151924;
+  padding: 10px;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
+  .wrapper {
+    margin: 100px auto;
+    width: 400px;
+
+    .form-group {
+      margin-bottom: 30px;
+      p {
+        color: white;
+        font-size: 12px;
+        font-family: "Acumin Pro";
+      }
+
+      app-text-field {
+        width: 300px;
+      }
+    }
+  }
+}

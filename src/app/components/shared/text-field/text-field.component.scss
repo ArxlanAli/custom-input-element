@@ -1,0 +1,107 @@
+$input-height: 40px;
+$input-padding: 0px 12px;
+$input-bg: #d9d9d91a;
+$input-border: 1px solid transparent;
+$input-font: "Acumin Pro";
+$input-font-size: 14px;
+$input-font-weight: 400;
+$input-line-height: 20px;
+$input-color: white;
+$input-placeholder-color: transparent;
+
+$error-color: #d32f2f;
+$focus-border-color: #555;
+$disabled-opacity: 0.5;
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: $input-bg;
+  padding: $input-padding;
+  color: $input-color;
+  border: $input-border;
+  height: $input-height;
+
+  &.focused {
+    border-color: $focus-border-color;
+  }
+
+  &.disabled {
+    opacity: $disabled-opacity;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  &.error {
+    border-color: $error-color;
+
+    .input-container {
+      .floating-label,
+      .floating-label.active {
+        color: $error-color;
+      }
+
+      input {
+        color: $error-color;
+      }
+    }
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+  }
+
+  .input-container {
+    position: relative;
+    flex: 1;
+
+    input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: $input-color;
+      font-size: $input-font-size;
+      font-family: $input-font;
+      font-weight: $input-font-weight;
+      font-style: normal;
+      letter-spacing: 0;
+      line-height: $input-line-height;
+      padding-top: 8px;
+
+      &::placeholder {
+        color: $input-placeholder-color;
+      }
+    }
+
+    .floating-label {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: $input-font-size;
+      font-family: $input-font;
+      font-weight: $input-font-weight;
+      font-style: normal;
+      letter-spacing: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+
+      &.active {
+        top: 5px;
+        font-size: 12px;
+        color: #aaa;
+      }
+    }
+  }
+}
+
+.error-message {
+  font-size: 12px;
+  color: $error-color;
+  margin-top: 10px;
+  font-family: $input-font;
+}

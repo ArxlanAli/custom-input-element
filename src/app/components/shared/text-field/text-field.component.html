@@ -1,0 +1,30 @@
+<div
+  class="input-wrapper"
+  [class.focused]="isFocused"
+  [class.disabled]="disabled"
+  [class.error]="!!error"
+>
+  <ng-container *ngIf="icon">
+    <img class="icon" [src]="icon" alt="icon" />
+  </ng-container>
+
+  <div class="input-container">
+    <label class="floating-label" [class.active]="isFocused || value">
+      {{ placeholder }}
+    </label>
+
+    <input
+      [type]="type"
+      [disabled]="disabled"
+      [value]="value"
+      (input)="handleInput($event)"
+      (focus)="handleFocus()"
+      (blur)="handleBlur()"
+    />
+  </div>
+</div>
+
+<!-- error message -->
+<div *ngIf="error" class="error-message">
+  {{ error }}
+</div>
